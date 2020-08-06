@@ -22,7 +22,7 @@ struct MovieResponse: Codable {
     let title: String
     let vote_average: Float
     let overview: String
-    let release_date: String
+    let release_date: String?
 }
 struct SearchResponse: Codable {
     let page: Int?
