@@ -8,7 +8,7 @@
 
 import UIKit;
 ///obtained from: https://www.hackingwithswift.com/example-code/media/how-to-read-the-average-color-of-a-uiimage-using-ciareaaverage
-/*extension UIImage {
+extension UIImage {
     var averageColor: UIColor? {
         guard let inputImage = CIImage(image: self) else { return nil }
         let extentVector = CIVector(x: inputImage.extent.origin.x, y: inputImage.extent.origin.y, z: inputImage.extent.size.width, w: inputImage.extent.size.height)
@@ -22,7 +22,7 @@ import UIKit;
 
         return UIColor(red: CGFloat(bitmap[0]) / 255, green: CGFloat(bitmap[1]) / 255, blue: CGFloat(bitmap[2]) / 255, alpha: CGFloat(bitmap[3]) / 255)
     }
-} */
+}
 
 class SecondViewController: UIViewController {
     @IBOutlet var displayDataLabel: UILabel!
@@ -53,20 +53,25 @@ class SecondViewController: UIViewController {
         self.present(actionAlert, animated: true, completion: nil)
     }
     /// Requests the movie from the TMDB API
-    /// - Returns: Void
     func updateViewWithDetails(details: MovieResponse) -> Void {
-        DispatchQueue.main.async {
-            print("Queue Dispatched!")
+        /// - TODO: Use CoreData to favorite
+        DispatchQueue.main.async { //fires of an async task, which can update the UI
+            print("Details Updated!")
             self.displayDataLabel.text = details.title
             self.descriptionLabel.text = details.overview
             self.loadingLabel.isHidden = true
             self.ratingLabel.text = "Rated \(details.vote_average) out of 10, with \(details.vote_count) votes."
         }
     }
+    func updateBackgroundColorAndForeground() -> Void {
+        /// - TODO: Update the background color (and if needed, foreground color)
+        /// this function will try to at least maintain a certain contrast with the text color and background color
+    }
     func makeImageLoadingAnimation() -> Void {
 //        !self.isImageLoaded ? mainImage.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0); : return;
     }
     func updateBackdrop(imageURL: URL) -> Void {
+        /// - TODO: Standardize guard let and do catch statements
         guard let imageData = try? Data(contentsOf: imageURL) else { return; }
         
         let img = UIImage(data: imageData)
@@ -80,7 +85,7 @@ class SecondViewController: UIViewController {
         let baseURL =  "https://api.themoviedb.org/3/search/movie?api_key=a14dfef12046c0910a5fc5367d18b5ab&language=en-US&query=\(recievingString)&page=1&include_adult=false"
         print("Data Requested...")
         let convertedURL = URL(string: baseURL.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)
-        URLSession.shared.dataTask(with: convertedURL!) { (data, response, err) in
+        URLSession.shared.dataTask(with: convertedURL!) { (data, response, err) in //fetches API search
             do {
 //            self.movieInfo = String(data: data!, encoding: .utf8)!
                 let decoder = JSONDecoder()
@@ -92,6 +97,7 @@ class SecondViewController: UIViewController {
                         self.updateBackdrop(imageURL: backdropURL!) }
                 } else {
                     let alert = UIAlertController(title: "404 Not Found", message: "Movie could not be found on the TMDB database", preferredStyle: .alert)
+//                    alert.addAction(action: UIAlertAction(title: "Cancel", style: .cancel,
                     self.present(alert, animated: true, completion: nil)
                 }
             } catch let error as NSError {
@@ -104,7 +110,7 @@ class SecondViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         requestData()
-        let helloWorldTimer = Timer.scheduledTimer(withTimeInterval: TimeInterval(), repeats: true, block: {_ in self.makeImageLoadingAnimation()})
+        let placeloaderAnimateTimer = Timer.scheduledTimer(withTimeInterval: TimeInterval(), repeats: true, block: {_ in self.makeImageLoadingAnimation()})
 //        helloWorldTimer.fire() // there's probably a more optimal way, but this is just for the meantime
     }
     

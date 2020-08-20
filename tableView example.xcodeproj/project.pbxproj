@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		82B3EE1A24DBB95800DEF746 /* FavoritesModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 82B3EE1824DBB95800DEF746 /* FavoritesModel.xcdatamodeld */; };
+		82B3EE5C24DC8EA700DEF746 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B3EE5B24DC8EA700DEF746 /* SettingsViewController.swift */; };
 		82F510D024D9E039000E0391 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F510CF24D9E039000E0391 /* AppDelegate.swift */; };
 		82F510D224D9E039000E0391 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F510D124D9E039000E0391 /* SceneDelegate.swift */; };
 		82F510D424D9E039000E0391 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F510D324D9E039000E0391 /* ViewController.swift */; };
@@ -37,6 +39,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		82B3EE1924DBB95800DEF746 /* FavoritesModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FavoritesModel.xcdatamodel; sourceTree = "<group>"; };
+		82B3EE5B24DC8EA700DEF746 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		82F510CC24D9E039000E0391 /* Disney Movie App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Disney Movie App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		82F510CF24D9E039000E0391 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		82F510D124D9E039000E0391 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -111,7 +115,9 @@
 				82F510DA24D9E03C000E0391 /* LaunchScreen.storyboard */,
 				82F510DD24D9E03C000E0391 /* Info.plist */,
 				82F5110124DA0EB0000E0391 /* SecondViewController.swift */,
+				82B3EE1824DBB95800DEF746 /* FavoritesModel.xcdatamodeld */,
 				82F5110324DA5EE1000E0391 /* MovieResponse.swift */,
+				82B3EE5B24DC8EA700DEF746 /* SettingsViewController.swift */,
 			);
 			path = "tableView example";
 			sourceTree = "<group>";
@@ -267,9 +273,11 @@
 			files = (
 				82F5110224DA0EB0000E0391 /* SecondViewController.swift in Sources */,
 				82F5110424DA5EE1000E0391 /* MovieResponse.swift in Sources */,
+				82B3EE5C24DC8EA700DEF746 /* SettingsViewController.swift in Sources */,
 				82F510D424D9E039000E0391 /* ViewController.swift in Sources */,
 				82F510D024D9E039000E0391 /* AppDelegate.swift in Sources */,
 				82F510D224D9E039000E0391 /* SceneDelegate.swift in Sources */,
+				82B3EE1A24DBB95800DEF746 /* FavoritesModel.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -592,6 +600,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		82B3EE1824DBB95800DEF746 /* FavoritesModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				82B3EE1924DBB95800DEF746 /* FavoritesModel.xcdatamodel */,
+			);
+			currentVersion = 82B3EE1924DBB95800DEF746 /* FavoritesModel.xcdatamodel */;
+			path = FavoritesModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 82F510C424D9E039000E0391 /* Project object */;
 }

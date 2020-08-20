@@ -7,13 +7,27 @@
 //
 
 import UIKit
-
+import CoreData
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
+    lazy var mainPersistentContainer: NSPersistentContainer = {
+        let container = NSPersistentContainer(name: "FavoritesModel")
+        container.loadPersistentStores {
+            description, error in
+            if let error = error {
+                fatalError("Can't load persistent stores: \(error)")
+            }
+        }
+        return container
+    }() //mostly obtained from developer.apple.com setting up core data stack doc
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
+        ///TODO - pass CoreData to ViewControllers (look in the internet?)
+//        if let rootVC = window?.rootViewController as? ViewController {
+//            rootVC.container = mainPersistentContainer
+//        }
         // Override point for customization after application launch.
         return true
     }

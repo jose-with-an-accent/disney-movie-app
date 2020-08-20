@@ -7,9 +7,13 @@
 //
 
 import UIKit
+import CoreData
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     let image = UIImage(named: "movieIcon")
+    
+//    let container: NSPersistentContainer! = nil
+    
     
     let listItems = [
         "Snow White and the Seven Dwarfs",
@@ -596,7 +600,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        /*guard container != nil else {
+            fatalError("View needs persistent container.")
+        }*/
+        //persistent container available
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return listItems.count
